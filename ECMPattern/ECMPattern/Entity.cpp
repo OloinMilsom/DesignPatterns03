@@ -1,7 +1,7 @@
 #include "Entity.h"
 #include <algorithm>
 
-Entity::Entity() {
+Entity::Entity(std::string id) : m_id(id) {
 }
 
 void Entity::addComponent(Component c) {

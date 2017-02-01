@@ -3,5 +3,6 @@
 #include "Entity.h"
 
 class Alien : public Entity {
-
+public:
+	Alien();
 };
