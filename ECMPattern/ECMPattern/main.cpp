@@ -10,26 +10,27 @@
 #include "PositionComponent.h"
 
 int main() {
-	// entities
+	//// entities
 	Alien alien;
 	Player player;
 	Cat cat;
 	Dog dog;
 
-	alien.addComponent(PositionComponent());
-	alien.addComponent(HealthComponent());
+	alien.addComponent(new PositionComponent());
+	alien.addComponent(new HealthComponent());
 
-	player.addComponent(HealthComponent());
-	player.addComponent(ControlComponent());
-	player.addComponent(PositionComponent());
+	player.addComponent(new HealthComponent());
+	player.addComponent(new ControlComponent());
+	player.addComponent(new PositionComponent());
 
-	cat.addComponent(PositionComponent());
-	cat.addComponent(HealthComponent());
+	cat.addComponent(new PositionComponent());
+	cat.addComponent(new HealthComponent());
 
-	dog.addComponent(PositionComponent());
-	dog.addComponent(HealthComponent());
+	dog.addComponent(new PositionComponent());
+	dog.addComponent(new HealthComponent());
 
-	std::cout << player.getComponent<PositionComponent>().getPosition().x << std::endl;
+	player.getComponent<PositionComponent>()->setPosition(12, 14);
+	std::cout << player.getComponent<PositionComponent>()->getX() << std::endl;
 
 	system("PAUSE");
 }

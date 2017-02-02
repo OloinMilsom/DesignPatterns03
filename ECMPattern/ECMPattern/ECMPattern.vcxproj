@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Cat.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="ControlComponent.cpp" />
     <ClCompile Include="Dog.cpp" />
     <ClCompile Include="Entity.cpp" />

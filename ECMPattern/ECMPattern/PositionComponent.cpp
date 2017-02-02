@@ -1,12 +1,17 @@
 #include "PositionComponent.h"
 
-PositionComponent::PositionComponent() : m_pos({ 0,0 }) {
+PositionComponent::PositionComponent() : m_x(0), m_y(0) {
 }
 
-Vector2 PositionComponent::getPosition() const {
-	return m_pos;
+int PositionComponent::getX() const {
+	return m_x;
 }
 
-void PositionComponent::setPosition(Vector2 val) {
-	m_pos = val;
+int PositionComponent::getY() const {
+	return m_y;
+}
+
+void PositionComponent::setPosition(int x, int y) {
+	m_x = x;
+	m_y = y;
 }

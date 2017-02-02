@@ -2,15 +2,13 @@
 
 #include "Component.h"
 
-struct Vector2 {
-	int x, y;
-};
-
 class PositionComponent : public Component {
 private:
-	Vector2 m_pos;
+	int m_x;
+	int m_y;
 public:
 	PositionComponent();
-	Vector2 getPosition() const;
-	void setPosition(Vector2 val);
+	int getX() const; 
+	int getY() const;
+	void setPosition(int x, int y);
 };

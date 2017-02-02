@@ -1,5 +1,9 @@
 #pragma once
 
-class Component {
+#include <string>
+#include <typeinfo>
 
+class Component {
+public:
+	virtual std::string getTypeName();
 };
