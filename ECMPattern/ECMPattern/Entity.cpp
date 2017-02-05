@@ -12,3 +12,7 @@ void Entity::addComponent(Component * c) {
 void Entity::removeComponent(Component * c) {
 	m_components.erase(&typeid(*c));
 }
+
+std::string Entity::getId() const {
+	return m_id;
+}

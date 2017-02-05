@@ -12,6 +12,7 @@ public:
 	Entity(std::string id);
 	void addComponent(Component * c);
 	void removeComponent(Component * c);
+	std::string getId() const;
 
 	template <typename T>
 	T * getComponent();

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <thread>
 
 #include "Alien.h"
 #include "Cat.h"
@@ -9,8 +10,17 @@
 #include "HealthComponent.h"
 #include "PositionComponent.h"
 
+#include "AISytem.h"
+#include "ControlSystem.h"
+#include "RenderSystem.h"
+
 int main() {
-	//// entities
+	// systems
+	AISystem aiSystem;
+	ControlSystem controlSystem;
+	RenderSystem renderSystem;
+
+	// entities
 	Alien alien;
 	Player player;
 	Cat cat;
@@ -24,13 +34,29 @@ int main() {
 	player.addComponent(new PositionComponent());
 
 	cat.addComponent(new PositionComponent());
-	cat.addComponent(new HealthComponent());
 
 	dog.addComponent(new PositionComponent());
 	dog.addComponent(new HealthComponent());
 
-	player.getComponent<PositionComponent>()->setPosition(12, 14);
-	std::cout << player.getComponent<PositionComponent>()->getX() << std::endl;
+	aiSystem.addEntity(alien);
+	aiSystem.addEntity(dog);
+
+	controlSystem.addEntity(player);
+
+	renderSystem.addEntity(alien);
+	renderSystem.addEntity(player);
+	renderSystem.addEntity(cat);
+	renderSystem.addEntity(dog);
+
+	while (true) {
+		std::cout << "-----------------------------------" << std::endl;
+
+		aiSystem.update();
+		controlSystem.update();
+		renderSystem.update();
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	}
 
 	system("PAUSE");
 }
